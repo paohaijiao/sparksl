@@ -13,17 +13,17 @@ object SparrkSql {
      // .setJars(List("D:\\workspace\\hello\\target\\hello-1.0-SNAPSHOT.jar"))
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc);
-    print("########################"+tansfer.getSourceClass);
-    Class.forName("com.mysql.jdbc.Driver");
+    Class.forName(tansfer.getSourceClass);
     val prop = new Properties()
     prop.setProperty("user",tansfer.getSourceUser)
     prop.setProperty("password",tansfer.getSourccePassw)
     val jdbcDF = sqlContext.read.jdbc(tansfer.getSourceJdbc,tansfer.getSourceTable,prop);
-   // Class.forName(tansfer.getToJdbc);
+    Class.forName(tansfer.getToClass);
     val prop1 = new Properties()
     prop1.setProperty("user",tansfer.getToUser)
     prop1.setProperty("password",tansfer.getToPassw)
     jdbcDF.write.mode(SaveMode.Overwrite).jdbc(tansfer.getToJdbc,tansfer.getToTable,prop1);
+    sc.stop();
   }
 
 }
