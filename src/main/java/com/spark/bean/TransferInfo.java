@@ -16,8 +16,8 @@ public class TransferInfo {
     private String sourceJdbc;
     @Column(name="sourceUser")
     private String sourceUser;
-    @Column(name="sourccePassw")
-    private String sourccePassw;
+    @Column(name="sourcePassw")
+    private String sourcePassw;
     @Column(name="sourceTable")
     private String sourceTable;
     @Column(name="sourceClass")
@@ -32,6 +32,56 @@ public class TransferInfo {
     private String toTable;
     @Column(name="toClass")
     private String toClass;
+    @Column(name="sourceSchema")
+    private String sourceSchema;
+    @Column(name="toSchema")
+    private String toSchema;
+    @Column(name="selectClause")
+    private String selectClause;
+    @Column(name="whereClause")
+    private String whereClause;
+    @Column(name="status")
+    private String status;
+
+    public String getSourceSchema() {
+        return sourceSchema;
+    }
+
+    public void setSourceSchema(String sourceSchema) {
+        this.sourceSchema = sourceSchema;
+    }
+
+    public String getToSchema() {
+        return toSchema;
+    }
+
+    public void setToSchema(String toSchema) {
+        this.toSchema = toSchema;
+    }
+
+    public String getSelectClause() {
+        return selectClause;
+    }
+
+    public void setSelectClause(String selectClause) {
+        this.selectClause = selectClause;
+    }
+
+    public String getWhereClause() {
+        return whereClause;
+    }
+
+    public void setWhereClause(String whereClause) {
+        this.whereClause = whereClause;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getId() {
         return id;
@@ -57,12 +107,12 @@ public class TransferInfo {
         this.sourceUser = sourceUser;
     }
 
-    public String getSourccePassw() {
-        return sourccePassw;
+    public String getSourcePassw() {
+        return sourcePassw;
     }
 
-    public void setSourccePassw(String sourccePassw) {
-        this.sourccePassw = sourccePassw;
+    public void setSourcePassw(String sourcePassw) {
+        this.sourcePassw = sourcePassw;
     }
 
     public String getSourceTable() {

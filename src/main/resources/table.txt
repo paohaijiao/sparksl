@@ -1,14 +1,18 @@
  create table sys_transfer_job(
-    id int primary key auto_increment,
-    source_jdbc varchar(500),
-    source_user varchar(100),
-    sourcce_passw varchar(100),
-    source_table varchar(100),
-    source_class varchar(100),
-        to_jdbc varchar(500),
-        to_user varchar(100),
-        to_passw varchar(100),
-        to_table varchar(100),
-        to_class varchar(100)
-);
-source_class
+      id int primary key auto_increment,
+      source_jdbc varchar(500),
+      source_user varchar(100),
+      source_passw varchar(100),
+      source_table varchar(100),
+      source_class varchar(100),
+      source_schema varchar(100),
+      to_jdbc varchar(500),
+      to_user varchar(100),
+      to_passw varchar(100),
+      to_table varchar(100),
+      to_class varchar(100),
+      to_schema varchar(100),
+      select_clause  varchar(8000),
+      where_clause  varchar(8000),
+      status  varchar(10)
+  );

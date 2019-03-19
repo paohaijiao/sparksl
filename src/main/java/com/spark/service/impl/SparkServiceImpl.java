@@ -14,7 +14,9 @@ public class SparkServiceImpl implements SparkService {
     @Override
     public boolean submitTaskToSpark(int jobid) {
         TransferInfo transfer=transferResitory.findById(jobid).get();
-        SparrkSql.invoke(transfer);
+        if(transfer.getStatus().equalsIgnoreCase("1")){
+            SparrkSql.invoke(transfer);
+        }
         return false;
     }
 }
