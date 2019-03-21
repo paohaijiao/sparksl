@@ -22,6 +22,7 @@ object SparrkSql {
     prop.setProperty("user",tansfer.getSourceUser)
     prop.setProperty("password",tansfer.getSourcePassw)
     val jdbcDF = sqlContext.read.jdbc(tansfer.getSourceJdbc,tansfer.getSourceSchema+"."+tansfer.getSourceTable,prop)
+    //jdbcDF.
     Class.forName(tansfer.getToClass);
     val prop1 = new Properties()
     prop1.setProperty("user",tansfer.getToUser)
@@ -30,8 +31,11 @@ object SparrkSql {
       jdbcDF.where(tansfer.getWhereClause)
     }
     if(null!=tansfer.getSelectClause){
-         val column=tansfer.getSelectClause.split(",").toSeq
+      var seq=Seq;
+      jdbcDF.show()
+     // jdbcDF.drop(jdbcDF(id"))
     }
+
     jdbcDF.write.mode(SaveMode.Overwrite).jdbc(tansfer.getToJdbc,tansfer.getToSchema+"."+tansfer.getToTable,prop1);
     sc.stop();
 
