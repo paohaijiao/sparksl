@@ -1,5 +1,5 @@
 package com.spark.service;
 
 public interface SparkService {
-    boolean submitTaskToSpark(int jobid);
+    String  submitTaskToSpark(int jobid);
 }

@@ -10,7 +10,6 @@ case class Record(key: Int, value: String)
 object HiveTest {
   def main(args: Array[String]): Unit = {
     val warehouseLocation = new File("hdfs://CDH:9000/user/hive/warehouse").getAbsolutePath
-
     val spark = SparkSession
       .builder()
       .appName("Spark Hive Example")
@@ -20,7 +19,6 @@ object HiveTest {
       .getOrCreate()
     import spark.implicits._
     import spark.sql
-
     sql("use test")
     // Queries are expressed in HiveQL
     sql("SELECT * FROM t_order").show()
