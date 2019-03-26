@@ -15,7 +15,7 @@ public class SparkApi {
         System.out.println("##########################################");
         System.out.println("########################################");
         long start=System.currentTimeMillis();
-        String msg=sparkService.submitTaskToSpark(1);
+        String msg=sparkService.submitTaskToSpark(53);
         long end=System.currentTimeMillis();
         System.out.println("这次同步花费了"+(end-start));
        return msg;
