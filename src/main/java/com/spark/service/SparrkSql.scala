@@ -33,7 +33,7 @@ object SparrkSql {
     var rows = sqlContext.read.jdbc(tansfer.getSourceJdbc, tansfer.getSourceSchema + "." + tansfer.getSourceTable, prop).collectAsList();
     val seq = JavaConverters.asScalaIteratorConverter(rows.iterator).asScala.toSeq
     val jdbcDFTo = sc.parallelize(seq, 2)
-    val column = ""
+    val column = "id:int,ent_name:string,grey_type:string,describe:string,create_by:string,date_created:Date,grey_flag:string"
     val structType = buildStructType(column)
     val jdbcDF = sqlContext.createDataFrame(jdbcDFTo, structType)
     //jdbcDF.
